@@ -54,7 +54,7 @@ const AssignBooking = ({ singles, resendSignal, closeView }) => {
     };
 
     return (
-        <ModalLayout  closeView={closeView}>
+        <ModalLayout closeView={closeView}>
             <div className="bg-white w-[95%] mx-auto text-primary h-[20rem] pt-10 overflow-hidden scrollsdown">
                 <div className="text-slate-600 text-xl rounded-lg shadow-xl mb-5 bg-blue-50 p-3">
                     Assign Provider
@@ -63,7 +63,7 @@ const AssignBooking = ({ singles, resendSignal, closeView }) => {
                     <div className="mt-5">
                         <div className='mb-5'>
                             <label className="text-xs">Provider</label>
-                            <select
+                            {/* <select
                                 {...register('provider', { required: 'Provider is required' })}
                                 className={`input border ${errors.provider ? 'border-red-600' : 'border'}`}
                             >
@@ -73,6 +73,19 @@ const AssignBooking = ({ singles, resendSignal, closeView }) => {
                                         {provider.fname} {provider.lname}
                                     </option>
                                 ))}
+                            </select> */}
+                            <select
+                                {...register('provider', { required: 'Provider is required' })}
+                                className={`input border ${errors.provider ? 'border-red-600' : 'border'}`}
+                            >
+                                <option value="">Select a provider</option>
+                                {items
+                                    .filter((provider) => provider.account_verified_text === "Approved") // Filter providers
+                                    .map((provider) => (
+                                        <option key={provider.provider_id} value={provider.provider_id}>
+                                            {provider.fname} {provider.lname}
+                                        </option>
+                                    ))}
                             </select>
                             {errors.provider && <p className="text-red-600 text-xs">{errors.provider.message}</p>}
                         </div>
