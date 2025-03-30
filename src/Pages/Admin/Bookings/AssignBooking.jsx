@@ -63,17 +63,7 @@ const AssignBooking = ({ singles, resendSignal, closeView }) => {
                     <div className="mt-5">
                         <div className='mb-5'>
                             <label className="text-xs">Provider</label>
-                            {/* <select
-                                {...register('provider', { required: 'Provider is required' })}
-                                className={`input border ${errors.provider ? 'border-red-600' : 'border'}`}
-                            >
-                                <option value="">Select a provider</option>
-                                {items.map((provider) => (
-                                    <option key={provider.provider_id} value={provider.provider_id}>
-                                        {provider.fname} {provider.lname}
-                                    </option>
-                                ))}
-                            </select> */}
+                          
                             <select
                                 {...register('provider', { required: 'Provider is required' })}
                                 className={`input border ${errors.provider ? 'border-red-600' : 'border'}`}
