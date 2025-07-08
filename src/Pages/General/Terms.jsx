@@ -4,8 +4,8 @@ import Layout from '../../Components/User/Layout'
 const Terms = () => {
     return (
         <Layout>
-        <div className="bg-gray w-full xl:h-[10rem]">
-            <div className="text-center py-1 pt-10">
+            <div className="bg-gray w-full xl:h-[10rem]">
+                <div className="text-center py-1 pt-10">
                     <p className='font-[500] text-4xl mb-3'>Terms & Conditions</p>
                     <span className='flex items-center gap-4 font-[500] justify-center'>
                         <p className="text-primary">Home</p>
@@ -16,25 +16,39 @@ const Terms = () => {
             </div>
             <div className="lg:mx-28 mx-2 text-justify my-20">
                 <div>
-                    <h1 className="text-xl font-medium mb-6">Agreement between User and www.taskcolony.com
+                    <h1 className="text-xl font-medium mb-6">Agreement between User and <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a>
                     </h1>
                     <p>
-                        Welcome to www.taskcolony.com. The www.taskcolony.com website (the "Site") is comprised of various
-                        web pages operated by Taskcolony ("Taskcolony"). www.taskcolony.com is offered to you conditioned on
+                        Welcome to <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a>. The <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> website (the "Site") is comprised of various
+                        web pages operated by Taskcolony ("Taskcolony"). <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> is offered to you conditioned on
                         your acceptance without modification of the terms, conditions, and notices contained herein (the
-                        "Terms"). Your use of www.taskcolony.com constitutes your agreement to all such Terms. Please read these
+                        "Terms"). Your use of <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> constitutes your agreement to all such Terms. Please read these
                         terms carefully, and keep a copy of them for your reference.
                     </p>
-                    <p>www.taskcolony.com is a Online Marketplace Site</p>
+                    <p><a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> is a Online Marketplace Site</p>
                     <p>connects freelancers labor with local demand, allowing people to find help with tasks</p>
                 </div>
                 <div className="my-8">
                     <h1 className="text-xl font-medium mb-4">Electronic Communications</h1>
                     <p>
-                        Visiting www.taskcolony.com or sending emails to Taskcolony constitutes electronic communications. You
-                        consent to receive electronic communications and you agree that all agreements, notices, disclosures and
-                        other communications that we provide to you electronically, via email and on the Site, satisfy any legal
-                        requirement that such communications be in writing.
+                        By creating an account with TaskColony, whether as a User or Service Provider, you consent to receive communications from us electronically. These communications may include but are not limited to:
+                    </p>
+                    <ul  className="list-disc ml-6 font-medium mt-3 space-y-2">
+                        <li>Transactional and service-related messages (e.g., job confirmations, booking updates, account notifications)</li>
+                        <li>Promotional messages (if you have opted in)</li>
+                        <li>Administrative communications (e.g., changes to our terms, service alerts, policy updates)</li>
+                    </ul>
+                    <p className="mt-3">
+                        You agree that we may contact you via email, SMS/text messages, and, in some cases, phone calls to the contact information you provide upon registration or update in your account.                    </p>
+                    <p className="mt-3">
+                        By providing your phone number, you consent to receive automated text messages and calls for the purposes of facilitating services, verifying identity, providing support, and communicating updates relevant to your use of the TaskColony platform.
+
+                    </p>
+                    <p className="mt-3">
+                        Standard message and data rates may apply. You may opt out of non-essential communications at any time by following the unsubscribe instructions included in our messages or by updating your preferences in your account settings.
+                    </p>
+                    <p className="mt-3">
+                        However, opting out of certain essential communications may impact your ability to use the platform effectively or access certain features.
                     </p>
                 </div>
                 <div className="mb-8">
@@ -51,26 +65,26 @@ const Terms = () => {
                 <div className="mb-8">
                     <h4 className="text-lg font-semibold mb-2">Children Under Thirteen</h4>
                     <p>Taskcolony does not knowingly collect, either online or offline, personal information from persons under
-                        the age of thirteen. If you are under 18, you may use www.taskcolony.com only with permission of a parent
+                        the age of thirteen. If you are under 18, you may use <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> only with permission of a parent
                         or guardian.</p>
                 </div>
                 <div className="mb-8">
                     <h4 className="text-lg font-semibold mb-2">Links to Third Party Sites/Third Party Services</h4>
-                    <p>www.taskcolony.com may contain links to other websites ("Linked Sites"). The Linked Sites are not under
+                    <p><a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> may contain links to other websites ("Linked Sites"). The Linked Sites are not under
                         the control of Taskcolony and Taskcolony is not responsible for the contents of any Linked Site, including
                         without limitation any link contained in a Linked Site, or any changes or updates to a Linked Site.
                         Taskcolony is providing these links to you only as a convenience, and the inclusion of any link does not
                         imply endorsement by Taskcolony of the site or any association with its operators.</p>
-                    <p>Certain services made available via www.taskcolony.com are delivered by third party sites and
-                        organizations. By using any product, service or functionality originating from the www.taskcolony.com
+                    <p>Certain services made available via <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> are delivered by third party sites and
+                        organizations. By using any product, service or functionality originating from the <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a>
                         domain, you hereby acknowledge and consent that Taskcolony may share such information and data with
                         any third party with whom Taskcolony has a contractual relationship to provide the requested product,
-                        service or functionality on behalf of www.taskcolony.com users and customers.</p>
+                        service or functionality on behalf of <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> users and customers.</p>
                 </div>
                 <div className="mb-8">
                     <h4 className="text-lg font-semibold mb-2">No Unlawful or Prohibited Use/Intellectual Property                    </h4>
                     <p>You are granted a non-exclusive, non-transferable, revocable license to access and use
-                        www.taskcolony.com strictly in accordance with these terms of use. As a condition of your use of the Site,
+                        <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> strictly in accordance with these terms of use. As a condition of your use of the Site,
                         you warrant to Taskcolony that you will not use the Site for any purpose that is unlawful or prohibited by
                         these Terms. You may not use the Site in any manner which could damage, disable, overburden, or impair
                         the Site or interfere with any other party's use and enjoyment of the Site. You may not obtain or attempt to
@@ -149,9 +163,9 @@ const Terms = () => {
                     </p>
                 </div>
                 <div className="mb-8">
-                    <h4 className="text-lg font-semibold mb-2">Materials Provided to www.taskcolony.com or Posted on Any Taskcolony Web Page</h4>
+                    <h4 className="text-lg font-semibold mb-2">Materials Provided to <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> or Posted on Any Taskcolony Web Page</h4>
                     <p>
-                        Taskcolony does not claim ownership of the materials you provide to www.taskcolony.com (including
+                        Taskcolony does not claim ownership of the materials you provide to <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> (including
                         feedback and suggestions) or post, upload, input or submit to any Taskcolony Site or our associated
                         services (collectively "Submissions"). However, by posting, uploading, inputting, providing or submitting
                         your Submission you are granting Taskcolony, our affiliated companies and necessary sublicensees
@@ -185,7 +199,7 @@ const Terms = () => {
                     <p>
                         The Service is controlled, operated and administered by Taskcolony from our offices within the USA. If you
                         access the Service from a location outside the USA, you are responsible for compliance with all local laws.
-                        You agree that you will not use the Taskcolony Content accessed through www.taskcolony.com in any
+                        You agree that you will not use the Taskcolony Content accessed through <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a> in any
                         country or in any manner prohibited by any applicable laws, restrictions or regulations.
 
                     </p>
@@ -308,7 +322,7 @@ const Terms = () => {
                 </div>
                 <div className="">
                     <h4 className="text-lg font-semibold mb-2">Changes to Terms</h4>
-                    <p>Taskcolony reserves the right, in its sole discretion, to change the Terms under which www.taskcolony.com
+                    <p>Taskcolony reserves the right, in its sole discretion, to change the Terms under which <a href="www.taskcolony.com" target='_blank' className="">www.taskcolony.com</a>
                         is offered. The most current version of the Terms will supersede all previous versions. Taskcolony
                         encourages you to periodically review the Terms to stay informed of our updates.
                     </p>

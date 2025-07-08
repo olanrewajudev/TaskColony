@@ -78,7 +78,7 @@ const Aboutus = () => {
           </div>
         </div>
 
-        {/* <div className="w-11/12 mx-auto lg:w-10/12 mt-20">
+        <div className="w-11/12 mx-auto lg:w-10/12 mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 bg-black rounded-3xl px-5 md:px-10 py-14 text-white">
             <div className="flex flex-col justify-center">
               <div className="flex items-center justify-between mt-10">
@@ -125,7 +125,7 @@ const Aboutus = () => {
             </div>
             <LazyLoadImage src={HomeTestimonials[currentTestimonialIndex].img} className="object-cover w-full object-top lg:w-[35rem] lg:h-[20rem]" effect="blur" />
           </div>
-        </div> */}
+        </div>
 
         <div className="bg-gray xl:w-[80%] w-full h-auto xl:h-[15rem] mb-40 mt-10 xl:py-20 py-10 xl:px-20 mx-auto">
           <div className="flex flex-col xl:flex-row items-center justify-center mx-10 gap-10">

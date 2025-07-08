@@ -6,20 +6,36 @@ import { ErrorAlert, ToastAlert } from '../../../Components/General/Utils';
 import { Link } from 'react-router-dom';
 
 const NewServices = () => {
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            status: 'active', // Set default value for status
+        },
+    });
     const [categories, setCategories] = useState([]);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [bannerImageName, setBannerImageName] = useState('');
-    const [galleryImages, setGalleryImages] = useState([]); // Store gallery images
+    const [galleryImages, setGalleryImages] = useState([]);
 
     // Fetch categories on mount
     useEffect(() => {
         const fetchCategories = async () => {
+            let allCategories = [];
+            let pageNo = 1;
+            const perPage = 70;
+            let totalPage = 1;
+
             try {
-                const res = await AuthGeturl(Apis.admins.get_categories);
-                if (res.status === true) {
-                    setCategories(res.data.data || []);
+                while (pageNo <= totalPage) {
+                    const res = await AuthGeturl(`${Apis.admins.get_categories}?page_no=${pageNo}&no_perpage=${perPage}`);
+                    if (res.status === true) {
+                        allCategories = [...allCategories, ...res.data.data];
+                        totalPage = res.data.total_pages;
+                        pageNo++;
+                    } else {
+                        break;
+                    }
                 }
+                setCategories(allCategories);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -28,27 +44,27 @@ const NewServices = () => {
     }, []);
 
     // Handle form submission
-    const onSubmit = async (data, event) => {
-        event.preventDefault();
-
+    const onSubmit = async (data) => {
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('duration', data.min_duration);
         formData.append('commission', data.commission);
         formData.append('category_tid', data.category);
-        formData.append('status', data.status);
+        formData.append('status', data.status); // Ensure status is included
         formData.append('featured', data.feature_front_page);
         formData.append('description', data.description);
 
         // Add banner image
-        if (data.banner_image[0]) {
+        if (data.banner_image && data.banner_image[0]) {
             formData.append('images[]', data.banner_image[0]);
         }
 
         // Add all gallery images
-        galleryImages.forEach((image, index) => {
-            formData.append(`gallery[]`, image.file); // Append each file
+        galleryImages.forEach((image) => {
+            formData.append('gallery[]', image.file);
         });
+
+        console.log('Submitting form with status:', data.status); // Debugging log
 
         setIsSubmitting(true);
 
@@ -79,10 +95,10 @@ const NewServices = () => {
     // Handle gallery image selection
     const handleGalleryImageChange = (e) => {
         if (e.target.files) {
-            const files = Array.from(e.target.files); // Convert to array
+            const files = Array.from(e.target.files);
             const updatedImages = files.map(file => ({
                 file,
-                preview: URL.createObjectURL(file), // Generate preview URL
+                preview: URL.createObjectURL(file),
             }));
             setGalleryImages(prev => [...prev, ...updatedImages]);
         }
@@ -151,7 +167,7 @@ const NewServices = () => {
                             {/* Status */}
                             <div>
                                 <label className="text-xs">Status</label>
-                                <select className="admininput" {...register('status')}>
+                                <select className="admininput" {...register('status', { required: true })}>
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
                                 </select>

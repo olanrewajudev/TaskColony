@@ -44,8 +44,8 @@ const AllServices = () => {
     const confirmAction = async () => {
         if (!singles.trackid) {
             console.error('No service ID found to delete.');
-            return;
-        }
+            return; // Prevent further execution
+        }   
 
         const data = { data_tid: singles.trackid };
         setLoads(true);
@@ -62,23 +62,34 @@ const AllServices = () => {
             }
         } catch (error) {
             setLoads(false);
+            console.error('Error deleting service:', error);
         }
     };
 
-    const GetAllCat = async () => {
+    const GetAllCat = useCallback(async () => {
+        let allCategories = [];
+        let pageNo = 1;
+        const perPage = 10; // Match backend's page size
+        let totalPage = 1;
+
         try {
-            const res = await AuthGeturl(Apis.admins.get_categories);
-            if (res.status === true) {
-                const categoryLookup = res.data.data.reduce((acc, category) => {
-                    acc[category.trackid] = category.name;
-                    return acc;
-                }, {});
-                setCategories(categoryLookup);
+            while (pageNo <= totalPage) {
+                const res = await AuthGeturl(`${Apis.admins.get_categories}?page_no=${pageNo}&no_perpage=${perPage}`);
+                if (res.status === true) {
+                    totalPage = res.data.totalpage; // Update total pages
+                    const categoryLookup = res.data.data.reduce((acc, category) => {
+                        acc[category.trackid] = category.name;
+                        return acc;
+                    }, {});
+                    allCategories = { ...allCategories, ...categoryLookup };
+                }
+                pageNo++; // Increment page number
             }
+            setCategories(allCategories);
         } catch (error) {
             console.error('Failed to fetch categories:', error);
         }
-    };
+    }, []);
 
     const getAllServices = useCallback(async () => {
         let allServices = [];
@@ -118,7 +129,7 @@ const AllServices = () => {
     useEffect(() => {
         GetAllCat();
         getAllServices();
-    }, [getAllServices]);
+    }, [GetAllCat, getAllServices]);
 
     const SingleItem = val => {
         setSingles(val);
@@ -168,7 +179,7 @@ const AllServices = () => {
                                 />
                                 <FaSearch size={16} />
                             </label>
-  <span className="text-primary text-2xl"><GiCancel /></span>                        </div>
+                            <span className="text-primary text-2xl"><GiCancel /></span></div>
                     </div>
                 </div>
                 <div className="flex items-start mb-10 justify-start">

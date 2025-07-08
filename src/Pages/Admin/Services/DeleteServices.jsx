@@ -12,7 +12,7 @@ const ConfirmDeleteServices = ({ closeView, confirmAction, isLoading }) => {
             <span>Deleting...</span>
           </div>
         ) : (
-          "Are you sure you want to delete this User?"
+          "Are you sure you want to delete this Service?"
         )}
       </div>
       {!isLoading && (

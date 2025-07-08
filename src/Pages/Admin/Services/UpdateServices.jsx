@@ -8,7 +8,7 @@ const UpdateService = ({ closeView, singles, resendSignal }) => {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [categories, setCategories] = useState([]);
-    const [galleryImages, setGalleryImages] = useState([]); // Manage gallery images
+    const [galleryImages, setGalleryImages] = useState([]);
     const [bannerImageName, setBannerImageName] = useState('');
 
     useEffect(() => {
@@ -26,11 +26,23 @@ const UpdateService = ({ closeView, singles, resendSignal }) => {
 
     useEffect(() => {
         const fetchCategories = async () => {
+            let allCategories = [];
+            let pageNo = 1;
+            const perPage = 70;
+            let totalPage = 1;
+
             try {
-                const res = await AuthGeturl(Apis.admins.get_categories);
-                if (res.status === true) {
-                    setCategories(res.data.data || []);
+                while (pageNo <= totalPage) {
+                    const res = await AuthGeturl(`${Apis.admins.get_categories}?page_no=${pageNo}&no_perpage=${perPage}`);
+                    if (res.status === true) {
+                        allCategories = [...allCategories, ...res.data.data];
+                        totalPage = res.data.total_pages;
+                        pageNo++;
+                    } else {
+                        break;
+                    }
                 }
+                setCategories(allCategories);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -59,8 +71,7 @@ const UpdateService = ({ closeView, singles, resendSignal }) => {
         setGalleryImages((prev) => prev.filter((_, i) => i !== index));
     };
 
-    const onSubmit = async (data, event) => {
-        event.preventDefault();
+    const onSubmit = async (data) => {
         setIsSubmitting(true);
         const formData = new FormData();
         formData.append('name', data.name);
