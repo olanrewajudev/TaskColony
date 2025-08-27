@@ -153,8 +153,8 @@ const KycForm = ({ closeView, isOpen }) => {
     if (!isOpen) return null;
 
     return (
-        <Modal height='h-[40rem]' width='w-[40rem]' closeView={closeView}>
-            <div className="text-black">
+        <Modal height='h-[40rem]' width='w-[40rem]'  closeView={closeView}>
+            <div className="text-black ">
                 <h2 className="text-xl font-bold mb-4">KYC Form</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-2 gap-3">

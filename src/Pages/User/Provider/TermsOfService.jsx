@@ -7,7 +7,7 @@ const TermsOfService = ({ isOpen, onClose }) => {
     return (
         <div>
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-                <div className="bg-white overflow-auto rounded-lg px-10 p-6 h-[90%] w-[60%] mx-auto">
+                <div className="bg-white overflow-auto rounded-lg px-10 p-6 h-[90%] lg:w-[60%] mx-auto">
                     <div className="text-lg font-bold mb-4">Terms Of Service for Providers on TaskColony.com </div>
                     <div>Welcome to TaskColony.com (the "Platform"). By signing up and providing services through our
                         Platform, you agree to the following terms and conditions, which govern your use of the Platform
